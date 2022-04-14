@@ -1,4 +1,5 @@
-﻿using SN.Models;
+﻿using SignaturePad.Forms;
+using SN.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +25,7 @@ namespace SN
 
         private async void SaveBtn_Clicked(object sender, EventArgs e)
         {
-            //Stream stream = await signature.GetImageStreamAsync(SignatureImageFormat.Jpeg);
+            Stream stream = await signature.GetImageStreamAsync(SignatureImageFormat.Jpeg);
         }
 
         private void CancelBtn_Clicked(object sender, EventArgs e)
