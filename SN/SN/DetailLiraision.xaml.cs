@@ -26,6 +26,13 @@ namespace SN
         private async void SaveBtn_Clicked(object sender, EventArgs e)
         {
             Stream stream = await signature.GetImageStreamAsync(SignatureImageFormat.Jpeg);
+            if(stream != null)
+            {
+                livraison.Statut = true;
+                App.livraisons.Remove(livraison);
+                await DisplayAlert("Alert", "Save done!", "OK");
+                _ = Navigation.PopModalAsync(true);
+            }
         }
 
         private void CancelBtn_Clicked(object sender, EventArgs e)

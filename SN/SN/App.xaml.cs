@@ -11,29 +11,30 @@ namespace SN
 {
     public partial class App : Application
     {
+
+        public static List<Livraison> livraisons = null;
         public App()
         {
             InitializeComponent();
-            List<Livraison> livraisions = null;
 
             var json = SecureStorage.GetAsync("Livraisions").Result;
             if (!string.IsNullOrEmpty(json))
             {
                 var livraisonsInitiales = JsonConvert.DeserializeObject<List<Livraison>>(json);
-                livraisions = livraisonsInitiales.FindAll(x => x.Statut == false);
+                livraisons = livraisonsInitiales.FindAll(x => x.Statut == false);
             }
             else
             {
-                livraisions = new List<Livraison>
+                livraisons = new List<Livraison>
                 {
-                    new Livraison("Ordinateurs",DateTime.Now, "Douala", "SN", 6777777777),
-                    new Livraison("Ordinateurs",DateTime.Now, "Douala", "SN", 6777777777),
-                    new Livraison("Ordinateurs",DateTime.Now, "Douala", "SN", 6777777777),
-                    new Livraison("Ordinateurs",DateTime.Now, "Douala", "SN", 6777777777)
+                    new Livraison("Ordinateurs1",DateTime.Now, "Douala", "SN", 6777777777),
+                    new Livraison("Ordinateurs2",DateTime.Now, "Douala", "SN", 6777777777),
+                    new Livraison("Ordinateurs3",DateTime.Now, "Douala", "SN", 6777777777),
+                    new Livraison("Ordinateurs4",DateTime.Now, "Douala", "SN", 6777777777)
                 };
             }
 
-            MainPage = new NavigationPage(new MainPage(livraisions));
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

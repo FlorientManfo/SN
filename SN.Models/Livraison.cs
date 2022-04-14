@@ -21,5 +21,11 @@ namespace SN.Models
             Client = client;
             Telephone = telephone;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Livraison livraison &&
+                   Reference == livraison.Reference;
+        }
     }
 }

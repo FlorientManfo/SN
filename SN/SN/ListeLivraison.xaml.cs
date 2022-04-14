@@ -11,18 +11,16 @@ namespace SN
 {
     public partial class MainPage : ContentPage
     {
-        private List<Livraison> livraisons = null;
-        public MainPage(List<Livraison> livraisons)
+        public MainPage()
         {
             InitializeComponent();
-            this.livraisons = livraisons;
 
         }
         protected override void OnAppearing()
         {
             Loader.IsVisible = true;
 
-            livraisons = livraisons.FindAll(x => x.Statut == false);
+            var livraisons = App.livraisons.FindAll(x => x.Statut == false);
             CvLivraison.ItemsSource = livraisons;
             base.OnAppearing();
 
