@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SN.DetailLiraision">
+
+    <ScrollView BackgroundColor="Wheat">
+        <StackLayout>
+            <Label FontSize="30"
+                   TextColor="Black"
+                   FontFamily="PlayfairRegular"
+                   Text="Details livraison"
+                   Padding="30,30,30,0"
+                   HorizontalOptions="Start"/>
+            <StackLayout Orientation="Vertical" Spacing="20">
+                <StackLayout  Padding="30,0,0,0">
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Label FontSize="Medium" Text="Rederence:" FontFamily="PlayfairRegular"
+                        FontAttributes="Bold" HorizontalOptions="Start"/>
+                        <Label x:Name="Reference" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Label Text="Date:" FontFamily="PlayfairRegular"
+                        HorizontalOptions="Start" FontAttributes="Bold"/>
+                        <Label x:Name="Date" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Label Text="Lieu:" FontSize="Medium"
+                        HorizontalOptions="Start" FontAttributes="Bold"/>
+                        <Label x:Name="Lieu" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Label Text="Client:"
+                        HorizontalOptions="Start" VerticalOptions="Center"
+                        FontAttributes="Bold"/>
+                        <Label x:Name="Client" LineBreakMode="WordWrap"
+                       HorizontalOptions="End"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Label Text="Telephone:" FontSize="Medium"
+                        FontAttributes="Bold" HorizontalOptions="Start"/>
+                        <Label x:Name="Telephone" TextColor="#71E7B6"
+                       HorizontalOptions="End"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center">
+                    <Button x:Name="CancelBtn" 
+                        HeightRequest="50"
+                        WidthRequest="150"
+                        CornerRadius="20"
+                        Text="Cancel"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        BackgroundColor="#71E7B6"
+                        HorizontalOptions="Start"
+                        Clicked="CancelBtn_Clicked"/>
+                    <Button x:Name="SaveBtn" 
+                        HeightRequest="50"
+                        WidthRequest="150"
+                        CornerRadius="20"
+                        Text="Save"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        BackgroundColor="#71E7B6"
+                        HorizontalOptions="EndAndExpand"
+                        Clicked="SaveBtn_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

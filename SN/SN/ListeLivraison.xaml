@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SN.MainPage">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label FontSize="30"
+               HorizontalOptions="Start"
+               VerticalOptions="Center"
+               TextColor="White"
+               FontFamily="PlayfairRegular"
+               Text="Lste Livraisions"
+               VerticalTextAlignment="Center"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <Grid RowDefinitions="Auto">
+
+        <RefreshView x:Name="Refresh" 
+                     IsRefreshing="False"
+                     Refreshing="Refresh_Refreshing">
+
+            <CollectionView x:Name="CvLivraison"
+                            Grid.Row="0"
+                            SelectionChanged="CvLivraision_SelectionChanged"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame VerticalOptions="Start">
+                            <Frame CornerRadius="20"
+                                   BackgroundColor="Wheat">
+                                <StackLayout  VerticalOptions="Center">
+                                    <Grid RowDefinitions="Auto,Auto,Auto" VerticalOptions="Center">
+                                        <StackLayout Orientation="Horizontal" Grid.Row="0">
+                                            <Label Text="Référence : "
+                                           FontSize="Medium" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Reference}"
+                                           FontSize="Subtitle" FontAttributes="None"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="1" VerticalOptions="Center">
+                                            <Label Text="Date: "
+                                           FontSize="Medium" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Date}"
+                                           FontSize="Subtitle" FontAttributes="Italic"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="2" VerticalOptions="Center">
+                                            <Label Text="Lieu : "
+                                           FontSize="Medium" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Lieu}"
+                                           FontSize="Subtitle" FontAttributes="None"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+        <ActivityIndicator x:Name="Loader"
+                            VerticalOptions="Center"
+                            IsVisible="False"
+                            IsRunning="True"/>
+    </Grid>
+
+</ContentPage>
